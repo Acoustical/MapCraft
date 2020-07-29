@@ -1,0 +1,34 @@
+﻿<Window x:Class="Map_Painter.ShowPainter"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Map_Painter"
+        mc:Ignorable="d"
+        Title="ShowPainter" Height="700" Width="600">
+    <StackPanel Width="512" Height="612" Cursor="Arrow">
+        <Border BorderBrush="DarkCyan" BorderThickness="2">
+            <Canvas Width="512" Height="512" Name="overlook">
+                <Canvas Width="512" Height="512" Name="paint" MouseMove="Move" MouseEnter="Move" MouseLeave="Clear"></Canvas>
+            </Canvas>
+        </Border>
+        <StackPanel Width="512" Height="100" Orientation="Horizontal">
+            <Grid Width="100">
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"></ColumnDefinition>
+                    <ColumnDefinition Width="2*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Label Grid.Row="0" Grid.Column="0" FontSize="16" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">行：</Label>
+                <Label Grid.Row="1" Grid.Column="0" FontSize="16" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">列：</Label>
+                <TextBox  Grid.Row="0" Grid.Column="1" FontSize="16" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="7" IsEnabled="False" Name="row_vis"></TextBox>
+                <TextBox  Grid.Row="1" Grid.Column="1" FontSize="16" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="7" IsEnabled="False" Name="col_vis"></TextBox>
+            </Grid>
+            <TextBlock Height="80" FontSize="16" Margin="20 0" HorizontalAlignment="Center" VerticalAlignment="Center" Block.TextAlignment="Center" Width="300" IsEnabled="False" Name="information" TextWrapping="Wrap">地图画总览</TextBlock>
+            <Button  Height="40" FontSize="16" Margin="20" Width="50" Click="Backward">后退</Button>
+        </StackPanel>
+    </StackPanel>
+</Window>
